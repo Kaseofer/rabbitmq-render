@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: rabbitmq-lab
+    env: docker
+    plan: free
+    autoDeploy: true
+    ports:
+      - port: 15672
+        protocol: tcp
+      - port: 5672
+        protocol: tcp
