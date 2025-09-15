@@ -1,9 +1,8 @@
-FROM rabbitmq:3.8.0-management
+FROM rabbitmq:3-management
 
-COPY rabbitmq.conf /etc/rabbitmq/
+COPY rabbitmq.conf /etc/rabbitmq/rabbitmq.conf
+COPY init.sh /init.sh
 
-ENV RABBITMQ_NODENAME=rabbit@localhost
+RUN chmod +x /init.sh
 
-RUN chown rabbitmq:rabbitmq /etc/rabbitmq/rabbitmq.conf
-
-USER rabbitmq:rabbitmq
+CMD ["/init.sh"]
